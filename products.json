@@ -1,0 +1,16 @@
+
+
+[  
+    {
+        "id": 1,
+        "product_name": "Plain T-Shirt",
+        "price": 21.99,
+        "stock": 30,
+        "category_id": 1,
+        "category": {
+            "id": 1,
+            "category_name": "Shirts"
+        }
+    }
+
+]
