@@ -27,4 +27,4 @@ Tag.init(
   }
 );
 
-module.exports = Location;
+module.exports = Tag;
