@@ -1,4 +1,4 @@
-const { Model, DataTypes } = require('sequelize');
+const { Model, DataTypes, DECIMAL } = require('sequelize');
 const sequelize = require('../config/connection');
 
 // create our Location model
@@ -13,9 +13,24 @@ Product.init(
       primaryKey: true,
       autoIncrement: true
     },
-    location_name: {
+    product_name: {
       type: DataTypes.STRING,
       allowNull: false
+    },
+    price: {
+        type: DataTypes.DECIMAL,
+        allowNull: false,
+        validate: {
+            isDecimal: true,
+        }
+    },
+    stock: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        validate: {
+            isNumeric: true,
+
+        }
     }
   },
   {
@@ -23,8 +38,8 @@ Product.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'location'
+    modelName: 'product'
   }
 );
 
-module.exports = Location;
+module.exports = Product;
