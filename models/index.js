@@ -3,26 +3,22 @@ const Tag = require('./Tag');
 const ProductTag = require('./ProductTag');
 const Category = require('./Category');
 
+Product.belongsTo(Category, {
+  foreignKey: 'category_id'
+})
 
-// Define a Driver as having one License to create a foreign key in the `license` table
-// ProductTag.hasOne(Product, {
-//   foreignKey: 'product_id',
-//   // When we delete a Driver, make sure to also delete the associated License.
-//   onDelete: 'CASCADE',
-// });
+Category.hasMany(Product, {
+  foreignKey: 'category_id'
+})
 
-// ProductTag.hasOne(Tag, {
-//     foreignKey: 'tag_id',
-//     // When we delete a Driver, make sure to also delete the associated License.
-//     onDelete: 'CASCADE',
-//   });
+Product.belongsToMany(Tag, {
+  through: ProductTag,
+  foreignKey: 'product_id'
+})
 
-// Product.belongsTo(Category)
-
-// Category.hasMany(Product)
-
-// Product.belongsToMany(Tag)
-
-// Tag.belongsToMany(Product)
+Tag.belongsToMany(Product, {
+  through: ProductTag,
+  foreignKey: 'tag_id'
+})
 
 module.exports = { Category, Product, Tag, ProductTag }

@@ -13,11 +13,6 @@ ProductTag.init(
       primaryKey: true,
       autoIncrement: true
     },
-    location_name: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-  
     product_id: {
       type: DataTypes.INTEGER,
       references: {
