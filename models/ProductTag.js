@@ -1,10 +1,11 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-// create our Location model
+// create our product tag model
 class ProductTag extends Model {}
 
-// create fields/columns for Location model
+// create fields/columns for product tag model
+// 3 columbs, id, product id and tag id
 ProductTag.init(
   {
     id: {

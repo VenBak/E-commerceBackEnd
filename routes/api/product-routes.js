@@ -6,6 +6,7 @@ const { Product, Category, Tag, ProductTag } = require('../../models');
 // get all products
 router.get('/', async (req, res) => {
   try {
+    // Get all the products and make sure to include that tag through product Tag
     const productData = await Product.findAll({
       include: [
         Category, { model: Tag, through: ProductTag }
@@ -20,7 +21,7 @@ router.get('/', async (req, res) => {
 // get one product
 router.get('/:id', async (req, res) => {
   // find a single product by its `id`
-  // be sure to include its associated Category and Tag data
+  // Makes sure to include its associated tag and product tag data
   try {
     const productData = await Product.findOne({
       where: {
@@ -36,10 +37,10 @@ router.get('/:id', async (req, res) => {
       res.status(404).json({ message: 'No category found with this id!' });
       return;
     }
-
+    // respond wit the data
     res.status(200).json(productData);
   } catch (err) {
-    res.status(500).json(err);
+    res.status(400).json(err);
   }
 });
 
@@ -120,7 +121,7 @@ router.put('/:id', (req, res) => {
 router.delete('/:id', async (req, res) => {
   // delete one product by its `id` value
   try {
-    const productData = await Category.destroy({
+    const productData = await Product.destroy({
       where: {
         id: req.params.id
       }
@@ -130,10 +131,10 @@ router.delete('/:id', async (req, res) => {
       res.status(404).json({ message: 'No category found with this id!' });
       return;
     }
-
+    // respond wit the data
     res.status(200).json(productData);
   } catch (err) {
-    res.status(500).json(err);
+    res.status(400).json(err);
   }
 });
 

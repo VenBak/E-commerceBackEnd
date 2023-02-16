@@ -4,6 +4,7 @@ const Sequelize = require('sequelize');
 
 let sequelize
 
+// Connect to the database with the information placed inside of the .env file
 if (process.env.JAWSDB_URL) {
   sequelize = new Sequelize(process.env.JAWSDB_URL);
 } else {

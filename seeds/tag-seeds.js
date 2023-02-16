@@ -1,5 +1,8 @@
+// Import the model
 const { Tag } = require('../models');
 
+
+// Build an array for the all data you wish to seed
 const tagData = [
   {
     tag_name: 'rock music',
@@ -27,6 +30,7 @@ const tagData = [
   },
 ];
 
+// Export the function
 const seedTags = () => Tag.bulkCreate(tagData);
 
 module.exports = seedTags;

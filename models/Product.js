@@ -1,10 +1,11 @@
 const { Model, DataTypes, DECIMAL } = require('sequelize');
 const sequelize = require('../config/connection');
 
-// create our Location model
+// create our product model
 class Product extends Model {}
 
-// create fields/columns for Location model
+// create fields/columns for product model
+// 5 different columns, id, product name, price, stock and category id
 Product.init(
   {
     id: {
