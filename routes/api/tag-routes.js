@@ -39,13 +39,16 @@ router.get('/:id', async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
-  // create a new tag
-  try {
-    const tagData = await Tag.Create(req.body)
-    res.status(200).json(tagData)
-  } catch (error) {
-    res.status(404).json(err);
-  }
+  // // create a new tag
+  // try {
+  //   const tagData = await Tag.Create(req.body)
+  //   res.status(200).json(tagData)
+  // } catch (error) {
+  //   res.status(404).json(err);
+  // }
+  Tag.create(req.body)
+    .then((tag) => res.status(200).json(tag))
+    .catch((err) => res.status(404).json(err));
 });
 
 router.put('/:id', async (req, res) => {

@@ -49,3 +49,15 @@ Here's what your terminal should look like after you have run the command in ord
 And here's what an example response from the different types of request can you can send to the route will give you back:
 
 ![example](./assets/images/insomnia.png)
+
+
+Here is link to videos to see how the application being ran would look like:
+
+Part 1:
+
+https://www.youtube.com/watch?v=VpF9btyawHU 
+
+
+Part 2:
+
+https://www.youtube.com/watch?v=C4lvKHForNg 
